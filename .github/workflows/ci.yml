@@ -74,3 +74,93 @@ jobs:
         name: Check context
         run: |
           docker context inspect foo
+
+  build-linux:
+    runs-on: ubuntu-latest
+    services:
+      registry:
+        image: registry:2
+        ports:
+          - 5000:5000
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Set up Docker
+        uses: ./
+        with:
+          version: v23.0.1
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        with:
+          driver: docker
+          driver-opts: network=host
+      -
+        name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: ./test
+          push: true
+          tags: |
+            localhost:5000/name/app:latest
+      -
+        name: Inspect
+        run: |
+          docker buildx imagetools inspect localhost:5000/name/app:latest --format '{{json .}}'
+
+  build-macos:
+    runs-on: macos-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Set up Docker
+        uses: ./
+        with:
+          version: v23.0.1
+      -
+        name: Start registry
+        run: |
+          docker run -d -p 5000:5000 --restart=always --name registry registry:2
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        with:
+          driver: docker
+          driver-opts: network=host
+      -
+        name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: ./test
+          push: true
+          tags: |
+            localhost:5000/name/app:latest
+      -
+        name: Inspect
+        run: |
+          docker buildx imagetools inspect localhost:5000/name/app:latest --format '{{json .}}'
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Set up Docker
+        uses: ./
+        with:
+          version: v23.0.1
+      -
+        name: Build
+        working-directory: ./test
+        run: |
+          docker build -f win.Dockerfile -t test .
+      -
+        name: Inspect
+        run: |
+          docker image inspect test
