@@ -1,0 +1,16 @@
+# https://help.github.com/en/articles/metadata-syntax-for-github-actions
+name: 'Docker Setup Docker'
+description: 'Set up Docker'
+author: 'docker'
+branding:
+  icon: 'anchor'
+  color: 'blue'
+
+inputs:
+  version:
+    description: 'Docker CE version. (e.g, 23.0.1)'
+    required: false
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
