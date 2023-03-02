@@ -3,9 +3,8 @@ import path from 'path';
 import * as uuid from 'uuid';
 import * as core from '@actions/core';
 import * as actionsToolkit from '@docker/actions-toolkit';
-
-import {Install} from '../../../docker_org/actions/docker-actions-toolkit/lib/docker/install';
-import {Docker} from '../../../docker_org/actions/docker-actions-toolkit/lib/docker/docker';
+import {Install} from '@docker/actions-toolkit/lib/docker/install';
+import {Docker} from '@docker/actions-toolkit/lib/docker/docker';
 
 import * as context from './context';
 import * as stateHelper from './state-helper';
