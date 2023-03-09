@@ -29,4 +29,4 @@ jobs:
         name: Set up Docker
         uses: ./
         with:
-          version: 23.0.0
+          version: v23.0.0

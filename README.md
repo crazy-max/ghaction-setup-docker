@@ -33,8 +33,6 @@ jobs:
       -
         name: Set up Docker
         uses: crazy-max/ghaction-setup-docker@v1
-        with:
-          version: 23.0.1
 ```
 
 ## Customizing
@@ -43,9 +41,9 @@ jobs:
 
 Following inputs can be used as `step.with` keys
 
-| Name      | Type   | Description                         |
-|-----------|--------|-------------------------------------|
-| `version` | String | Docker CE version (e.g., `23.0.1`). |
+| Name      | Type   | Default  | Description                          |
+|-----------|--------|----------|--------------------------------------|
+| `version` | String | `latest` | Docker CE version (e.g., `v23.0.1`). |
 
 ## Contributing
 
