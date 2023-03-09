@@ -13,18 +13,21 @@ actionsToolkit.run(
   // main
   async () => {
     const input: context.Inputs = context.getInputs();
+    const runDir = path.join(os.homedir(), `setup-docker-action-${uuid.v4()}`);
 
-    const install = new Install();
+    const install = new Install({
+      runDir: runDir,
+      version: input.version
+    });
     let toolDir;
     if (!(await Docker.isAvailable()) || input.version) {
       await core.group(`Download docker`, async () => {
-        toolDir = await install.download(input.version || 'latest');
+        toolDir = await install.download();
       });
     }
     if (toolDir) {
-      const runDir = path.join(os.homedir(), `setup-docker-action-${uuid.v4()}`);
       stateHelper.setRunDir(runDir);
-      await install.install(toolDir, runDir, input.version);
+      await install.install();
     }
 
     await core.group(`Docker info`, async () => {
@@ -37,7 +40,9 @@ actionsToolkit.run(
     if (stateHelper.runDir.length == 0) {
       return;
     }
-    const install = new Install();
-    await install.tearDown(stateHelper.runDir);
+    const install = new Install({
+      runDir: stateHelper.runDir
+    });
+    await install.tearDown();
   }
 );
