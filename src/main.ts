@@ -17,7 +17,8 @@ actionsToolkit.run(
 
     const install = new Install({
       runDir: runDir,
-      version: input.version
+      version: input.version,
+      channel: input.channel
     });
     let toolDir;
     if (!(await Docker.isAvailable()) || input.version) {

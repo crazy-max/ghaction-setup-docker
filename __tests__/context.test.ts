@@ -21,6 +21,18 @@ describe('getInputs', () => {
       ]),
       {
         version: 'v23.0.1',
+        channel: '',
+      } as context.Inputs
+    ],
+    [
+      1,
+      new Map<string, string>([
+        ['version', 'v23.0.0-rc.4'],
+        ['channel', 'test'],
+      ]),
+      {
+        version: 'v23.0.0-rc.4',
+        channel: 'test',
       } as context.Inputs
     ]
   ])(
