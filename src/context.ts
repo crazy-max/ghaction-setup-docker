@@ -8,7 +8,7 @@ export interface Inputs {
 
 export function getInputs(): Inputs {
   return {
-    version: core.getInput('version'),
+    version: core.getInput('version') || 'latest',
     channel: core.getInput('channel'),
     context: core.getInput('context')
   };

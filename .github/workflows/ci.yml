@@ -89,8 +89,6 @@ jobs:
       -
         name: Set up Docker
         uses: ./
-        with:
-          version: v23.0.1
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -119,8 +117,6 @@ jobs:
       -
         name: Set up Docker
         uses: ./
-        with:
-          version: v23.0.1
       -
         name: Start registry
         run: |
@@ -153,8 +149,6 @@ jobs:
       -
         name: Set up Docker
         uses: ./
-        with:
-          version: v23.0.1
       -
         name: Build
         working-directory: ./test
