@@ -41,9 +41,10 @@ jobs:
 
 Following inputs can be used as `step.with` keys
 
-| Name      | Type   | Default  | Description                          |
-|-----------|--------|----------|--------------------------------------|
-| `version` | String | `latest` | Docker CE version (e.g., `v23.0.1`). |
+| Name      | Type   | Default  | Description                                                                                       |
+|-----------|--------|----------|---------------------------------------------------------------------------------------------------|
+| `version` | String | `latest` | Docker CE version (e.g., `v23.0.1`).                                                              |
+| `channel` | String | `stable` | Docker CE [channel](https://download.docker.com/linux/static/) (e.g, `stable`, `edge` or `test`). |
 
 ## Contributing
 
