@@ -17,6 +17,7 @@ ___
 * [Customizing](#customizing)
   * [inputs](#inputs)
 * [Contributing](#contributing)
+* [License](#license)
 
 ## Usage
 
@@ -49,5 +50,16 @@ Following inputs can be used as `step.with` keys
 
 ## Contributing
 
-Want to contribute? Awesome! You can find information about contributing to
-this project in the [CONTRIBUTING.md](/.github/CONTRIBUTING.md)
+Want to contribute? Awesome! The most basic way to show your support is to star
+the project, or to raise issues. If you want to open a pull request, please
+read the [contributing guidelines](.github/CONTRIBUTING.md).
+
+You can also support this project by [**becoming a sponsor on GitHub**](https://github.com/sponsors/crazy-max)
+or by making a [PayPal donation](https://www.paypal.me/crazyws) to ensure this
+journey continues indefinitely!
+
+Thanks again for your support, it is much appreciated! :pray:
+
+## License
+
+Apache-2.0. See `LICENSE` for more details.

@@ -1,6 +1,6 @@
 {
   "name": "docker-setup-docker",
-  "description": "Set up Docker CE",
+  "description": "Set up Docker for use in GitHub Actions by downloading and installing a version of Docker CE",
   "main": "lib/main.js",
   "scripts": {
     "build": "ncc build src/main.ts --source-map --minify --license licenses.txt",
@@ -18,13 +18,7 @@
     "docker",
     "engine"
   ],
-  "author": "Docker",
-  "contributors": [
-    {
-      "name": "CrazyMax",
-      "url": "https://crazymax.dev"
-    }
-  ],
+  "author": "CrazyMax",
   "license": "Apache-2.0",
   "dependencies": {
     "@actions/core": "^1.10.0",
