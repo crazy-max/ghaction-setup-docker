@@ -21,7 +21,7 @@ actionsToolkit.run(
 
     const install = new Install({
       runDir: runDir,
-      version: input.version || 'latest',
+      version: input.version,
       channel: input.channel || 'stable',
       contextName: input.context || 'setup-docker-action'
     });

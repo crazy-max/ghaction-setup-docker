@@ -10,6 +10,7 @@ inputs:
   version:
     description: 'Docker CE version. (e.g, v23.0.1)'
     required: false
+    default: 'latest'
   channel:
     description: 'Docker CE channel. (e.g, stable, edge or test)'
     required: false

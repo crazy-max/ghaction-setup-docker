@@ -37,6 +37,15 @@ describe('getInputs', () => {
         channel: 'test',
         context: 'foo',
       } as context.Inputs
+    ],
+    [
+      2,
+      new Map<string, string>([]),
+      {
+        version: 'latest',
+        channel: '',
+        context: '',
+      } as context.Inputs
     ]
   ])(
     '[%d] given %p as inputs, returns %p',
