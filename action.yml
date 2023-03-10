@@ -1,6 +1,6 @@
 # https://help.github.com/en/articles/metadata-syntax-for-github-actions
 name: 'Docker Setup Docker'
-description: 'Set up Docker'
+description: 'Set up Docker for use in GitHub Actions by downloading and installing a version of Docker CE'
 author: 'docker'
 branding:
   icon: 'anchor'
@@ -12,6 +12,9 @@ inputs:
     required: false
   channel:
     description: 'Docker CE channel. (e.g, stable, edge or test)'
+    required: false
+  context:
+    description: 'Docker context name. (default setup-docker-action)'
     required: false
 
 runs:

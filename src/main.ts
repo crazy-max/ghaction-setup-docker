@@ -15,10 +15,15 @@ actionsToolkit.run(
     const input: context.Inputs = context.getInputs();
     const runDir = path.join(os.homedir(), `setup-docker-action-${uuid.v4()}`);
 
+    if (input.context == 'default') {
+      throw new Error(`'default' context cannot be used.`);
+    }
+
     const install = new Install({
       runDir: runDir,
-      version: input.version,
-      channel: input.channel
+      version: input.version || 'latest',
+      channel: input.channel || 'stable',
+      contextName: input.context || 'setup-docker-action'
     });
     let toolDir;
     if (!(await Docker.isAvailable()) || input.version) {
