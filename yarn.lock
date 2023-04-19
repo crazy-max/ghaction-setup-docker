@@ -352,10 +352,10 @@
   dependencies:
     "@cspotcode/source-map-consumer" "0.8.0"
 
-"@docker/actions-toolkit@^0.1.0-beta.18":
-  version "0.1.0-beta.18"
-  resolved "https://registry.yarnpkg.com/@docker/actions-toolkit/-/actions-toolkit-0.1.0-beta.18.tgz#cf5c61059dba81d8e0f595a0bcc67b125ec25f09"
-  integrity sha512-WzayeV7ZNaqWyozWUI1QVZefacqWUV9gT/w54YiiizG145YJEMov6FXYMec2OE2tsTJ9uI1UgOl5hW/HFdG1mA==
+"@docker/actions-toolkit@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@docker/actions-toolkit/-/actions-toolkit-0.2.0.tgz#d12a7cac075bd440c4fa005553953e991cf90bf0"
+  integrity sha512-lM6DdPceuAyc+ZVzijJ2ae0synZ2Bw6Idl0NhD+nqRDGkZk8bWMRddgQfgFu/ELT6sONnn7HvCGNTERq2BNKdw==
   dependencies:
     "@actions/core" "^1.10.0"
     "@actions/exec" "^1.1.1"
@@ -364,10 +364,10 @@
     "@actions/io" "^1.1.2"
     "@actions/tool-cache" "^2.0.1"
     async-retry "^1.3.3"
-    csv-parse "^5.3.5"
+    csv-parse "^5.3.8"
     handlebars "^4.7.7"
     jwt-decode "^3.1.2"
-    semver "^7.3.8"
+    semver "^7.5.0"
     tmp "^0.2.1"
 
 "@eslint/eslintrc@^1.2.1":
@@ -1400,10 +1400,10 @@ cssstyle@^2.3.0:
   dependencies:
     cssom "~0.3.6"
 
-csv-parse@^5.3.5:
-  version "5.3.5"
-  resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-5.3.5.tgz#9924bbba9f7056122f06b7af18edc1a7f022ce99"
-  integrity sha512-8O5KTIRtwmtD3+EVfW6BCgbwZqJbhTYsQZry12F1TP5RUp0sD9tp1UnCWic3n0mLOhzeocYaCZNYxOGSg3dmmQ==
+csv-parse@^5.3.8:
+  version "5.3.8"
+  resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-5.3.8.tgz#c9919fbc5670fddec09a4b40e25365a2d11956d1"
+  integrity sha512-ird8lzMv9I64oqIVIHdaTbT7Yr55n2C/Nv6m1LxO7nddLEeI67468VQ9Ik+r6lwYbK9kTE1oSqAVcVKc/Uqx6g==
 
 data-urls@^2.0.0:
   version "2.0.0"
@@ -3065,10 +3065,10 @@ saxes@^5.0.1:
   dependencies:
     xmlchars "^2.2.0"
 
-semver@7.x, semver@^7.3.2, semver@^7.3.5, semver@^7.3.7, semver@^7.3.8:
-  version "7.3.8"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.8.tgz#07a78feafb3f7b32347d725e33de7e2a2df67798"
-  integrity sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A==
+semver@7.x, semver@^7.3.2, semver@^7.3.5, semver@^7.3.7, semver@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.5.0.tgz#ed8c5dc8efb6c629c88b23d41dc9bf40c1d96cd0"
+  integrity sha512-+XC0AD/R7Q2mPSRuy2Id0+CGTZ98+8f+KvwirxOKIEyid+XSx6HbC63p+O4IndTHuX5Z+JxQ0TghCkO5Cg/2HA==
   dependencies:
     lru-cache "^6.0.0"
 
