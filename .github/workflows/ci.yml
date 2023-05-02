@@ -75,11 +75,6 @@ jobs:
 
   build-linux:
     runs-on: ubuntu-latest
-    services:
-      registry:
-        image: registry:2
-        ports:
-          - 5000:5000
     steps:
       -
         name: Checkout
@@ -87,6 +82,10 @@ jobs:
       -
         name: Set up Docker
         uses: ./
+      -
+        name: Start registry
+        run: |
+          docker run -d -p 5000:5000 --restart=always --name registry registry:2
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
