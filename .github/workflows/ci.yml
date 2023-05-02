@@ -108,6 +108,10 @@ jobs:
         name: Inspect
         run: |
           docker buildx imagetools inspect localhost:5000/name/app:latest --format '{{json .}}'
+      -
+        name: PS
+        run: |
+          sudo ps -aef --forest
 
   build-macos:
     runs-on: macos-latest
