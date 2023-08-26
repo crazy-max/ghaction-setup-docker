@@ -45,6 +45,10 @@ jobs:
         uses: ./
         with:
           version: ${{ env.DOCKER_VERSION }}
+      -
+        name: Dump context
+        if: always()
+        uses: crazy-max/ghaction-dump-context@v2
 
   channel:
     runs-on: ${{ matrix.os }}
@@ -65,6 +69,10 @@ jobs:
         with:
           version: v23.0.0-rc.4
           channel: test
+      -
+        name: Dump context
+        if: always()
+        uses: crazy-max/ghaction-dump-context@v2
 
   context:
     runs-on: ${{ matrix.os }}
@@ -89,14 +97,13 @@ jobs:
         name: Check context
         run: |
           docker context inspect foo
+      -
+        name: Dump context
+        if: always()
+        uses: crazy-max/ghaction-dump-context@v2
 
   build-linux:
     runs-on: ubuntu-latest
-    services:
-      registry:
-        image: registry:2
-        ports:
-          - 5000:5000
     steps:
       -
         name: Checkout
@@ -106,6 +113,10 @@ jobs:
         uses: ./
         with:
           version: ${{ env.DOCKER_VERSION }}
+      -
+        name: Start registry
+        run: |
+          docker run -d -p 5000:5000 --restart=always --name registry registry:2
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -124,6 +135,10 @@ jobs:
         name: Inspect
         run: |
           docker buildx imagetools inspect localhost:5000/name/app:latest --format '{{json .}}'
+      -
+        name: Dump context
+        if: always()
+        uses: crazy-max/ghaction-dump-context@v2
 
   build-macos:
     runs-on: macos-latest
@@ -158,6 +173,10 @@ jobs:
         name: Inspect
         run: |
           docker buildx imagetools inspect localhost:5000/name/app:latest --format '{{json .}}'
+      -
+        name: Dump context
+        if: always()
+        uses: crazy-max/ghaction-dump-context@v2
 
   build-windows:
     runs-on: windows-latest
@@ -179,3 +198,7 @@ jobs:
         name: Inspect
         run: |
           docker image inspect test
+      -
+        name: Dump context
+        if: always()
+        uses: crazy-max/ghaction-dump-context@v2
