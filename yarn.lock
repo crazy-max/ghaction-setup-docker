@@ -480,10 +480,10 @@
   dependencies:
     "@cspotcode/source-map-consumer" "0.8.0"
 
-"@docker/actions-toolkit@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@docker/actions-toolkit/-/actions-toolkit-0.9.0.tgz#0739749b4e155cf1dae04b14e06545efb5649044"
-  integrity sha512-FMLGBd0Kk+PuVtzrZMJ8Ytgaq8cRvD43zKhQz1i5cS85etCfE4ie8hjLHMfvUaojibvd10ryGuZGuJm/BEh39g==
+"@docker/actions-toolkit@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@docker/actions-toolkit/-/actions-toolkit-0.10.0.tgz#5a2769ae48c93c689db2b9c665cd9fb80123c419"
+  integrity sha512-87ivF6QROwDTeWCfIEK+JLkp5H0f/HGuDF4/VlulvZQFARiv344Xi5MBFTAU4Zd3kxKYEE2RwTw01aYDLr08Nw==
   dependencies:
     "@actions/cache" "^3.2.2"
     "@actions/core" "^1.10.0"
