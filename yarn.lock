@@ -480,10 +480,10 @@
   dependencies:
     "@cspotcode/source-map-consumer" "0.8.0"
 
-"@docker/actions-toolkit@^0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@docker/actions-toolkit/-/actions-toolkit-0.10.0.tgz#5a2769ae48c93c689db2b9c665cd9fb80123c419"
-  integrity sha512-87ivF6QROwDTeWCfIEK+JLkp5H0f/HGuDF4/VlulvZQFARiv344Xi5MBFTAU4Zd3kxKYEE2RwTw01aYDLr08Nw==
+"@docker/actions-toolkit@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@docker/actions-toolkit/-/actions-toolkit-0.11.0.tgz#008af613803161f945c75392b5b90d6f64e63f57"
+  integrity sha512-ud2ZZfNpmOP3ayqINhXG9M6CmRN41gRWydMAuU0GP9Q1oZETAn81Qy3lYSvCB3eD57Hyl4PtAq56SxsIq+twSQ==
   dependencies:
     "@actions/cache" "^3.2.2"
     "@actions/core" "^1.10.0"
@@ -494,8 +494,9 @@
     "@actions/tool-cache" "^2.0.1"
     "@octokit/plugin-rest-endpoint-methods" "^7.2.3"
     async-retry "^1.3.3"
-    csv-parse "^5.4.0"
+    csv-parse "^5.5.0"
     handlebars "^4.7.8"
+    js-yaml "^4.1.0"
     jwt-decode "^3.1.2"
     semver "^7.5.4"
     tmp "^0.2.1"
@@ -1576,10 +1577,10 @@ cssstyle@^2.3.0:
   dependencies:
     cssom "~0.3.6"
 
-csv-parse@^5.4.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-5.4.0.tgz#6793210a4a49a9a74b3fde3f9d00f3f52044fd89"
-  integrity sha512-JiQosUWiOFgp4hQn0an+SBoV9IKdqzhROM0iiN4LB7UpfJBlsSJlWl9nq4zGgxgMAzHJ6V4t29VAVD+3+2NJAg==
+csv-parse@^5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-5.5.0.tgz#2313421e69b650dae32a79ac884b20b21ca1d9da"
+  integrity sha512-RxruSK3M4XgzcD7Trm2wEN+SJ26ChIb903+IWxNOcB5q4jT2Cs+hFr6QP39J05EohshRFEvyzEBoZ/466S2sbw==
 
 data-urls@^2.0.0:
   version "2.0.0"
