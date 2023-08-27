@@ -23,7 +23,8 @@ actionsToolkit.run(
       runDir: runDir,
       version: input.version,
       channel: input.channel || 'stable',
-      contextName: input.context || 'setup-docker-action'
+      contextName: input.context || 'setup-docker-action',
+      daemonConfig: input.daemonConfig
     });
     let toolDir;
     if (!(await Docker.isAvailable()) || input.version) {

@@ -14,6 +14,9 @@ inputs:
   channel:
     description: 'Docker CE channel. (e.g, stable, edge or test)'
     required: false
+  daemon-config:
+    description: 'Docker daemon JSON configuration'
+    required: false
   context:
     description: 'Docker context name. (default setup-docker-action)'
     required: false
