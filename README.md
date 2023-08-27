@@ -14,6 +14,8 @@ Works on Linux, macOS and Windows.
 ___
 
 * [Usage](#usage)
+  * [Quick start](#quick-start)
+  * [Daemon configuration](#daemon-configuration)
 * [Customizing](#customizing)
   * [inputs](#inputs)
 * [Notes](#notes)
@@ -21,6 +23,8 @@ ___
 * [License](#license)
 
 ## Usage
+
+### Quick start
 
 ```yaml
 name: ci
@@ -37,17 +41,48 @@ jobs:
         uses: crazy-max/ghaction-setup-docker@v1
 ```
 
+### Daemon configuration
+
+You can [configure the Docker daemon](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file)
+using the `daemon-config` input. In the following example, we configure the
+Docker daemon to enable debug and the [containerd image store](https://docs.docker.com/storage/containerd/)
+feature:
+
+```yaml
+name: ci
+
+on:
+  push:
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Set up Docker
+        uses: crazy-max/ghaction-setup-docker@v1
+        with:
+          daemon-config: |
+            {
+              "debug": true,
+              "features": {
+                "containerd-snapshotter": true
+              }
+            }
+```
+
 ## Customizing
 
 ### inputs
 
 Following inputs can be used as `step.with` keys
 
-| Name      | Type   | Default               | Description                                                                                       |
-|-----------|--------|-----------------------|---------------------------------------------------------------------------------------------------|
-| `version` | String | `latest`              | Docker CE version (e.g., `v23.0.1`).                                                              |
-| `channel` | String | `stable`              | Docker CE [channel](https://download.docker.com/linux/static/) (e.g, `stable`, `edge` or `test`). |
-| `context` | String | `setup-docker-action` | Docker context name.                                                                              |
+| Name            | Type   | Default               | Description                                                                                                                 |
+|-----------------|--------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| `version`       | String | `latest`              | Docker CE version (e.g., `v23.0.1`).                                                                                        |
+| `channel`       | String | `stable`              | Docker CE [channel](https://download.docker.com/linux/static/) (e.g, `stable`, `edge` or `test`).                           |
+| `daemon-config` | String |                       | [Docker daemon JSON configuration](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file) |
+| `context`       | String | `setup-docker-action` | Docker context name.                                                                                                        |
 
 ## Notes
 

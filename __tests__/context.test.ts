@@ -23,6 +23,7 @@ describe('getInputs', () => {
         version: 'v23.0.1',
         channel: '',
         context: '',
+        daemonConfig: '',
       } as context.Inputs
     ],
     [
@@ -31,11 +32,13 @@ describe('getInputs', () => {
         ['version', 'v23.0.0-rc.4'],
         ['channel', 'test'],
         ['context', 'foo'],
+        ['daemon-config', `{"debug":true,"features":{"containerd-snapshotter":true}}`],
       ]),
       {
         version: 'v23.0.0-rc.4',
         channel: 'test',
         context: 'foo',
+        daemonConfig: `{"debug":true,"features":{"containerd-snapshotter":true}}`,
       } as context.Inputs
     ],
     [
@@ -45,6 +48,7 @@ describe('getInputs', () => {
         version: 'latest',
         channel: '',
         context: '',
+        daemonConfig: '',
       } as context.Inputs
     ]
   ])(
