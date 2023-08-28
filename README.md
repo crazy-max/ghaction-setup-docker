@@ -16,6 +16,7 @@ ___
 * [Usage](#usage)
   * [Quick start](#quick-start)
   * [Daemon configuration](#daemon-configuration)
+  * [Define custom `colima start` arguments (macOS)](#define-custom-colima-start-arguments-macos)
 * [Customizing](#customizing)
   * [inputs](#inputs)
 * [Notes](#notes)
@@ -69,6 +70,28 @@ jobs:
                 "containerd-snapshotter": true
               }
             }
+```
+
+### Define custom `colima start` arguments (macOS)
+
+You can define custom [`colima start` arguments](https://github.com/abiosoft/colima#customizing-the-vm)
+using the `COLIMA_START_ARGS` environment variable to customize the VM:
+
+```yaml
+name: ci
+
+on:
+  push:
+
+jobs:
+  docker:
+    runs-on: macos-latest
+    steps:
+      -
+        name: Set up Docker
+        uses: crazy-max/ghaction-setup-docker@v1
+        env:
+          COLIMA_START_ARGS: --cpu 4 --memory 8 --disk 32
 ```
 
 ## Customizing
