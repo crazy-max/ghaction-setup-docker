@@ -4,10 +4,12 @@ ARG NODE_VERSION=16
 
 FROM node:${NODE_VERSION}-alpine AS base
 RUN apk add --no-cache cpio findutils git
+RUN yarn config set --home enableTelemetry 0
 WORKDIR /src
 
 FROM base AS deps
 RUN --mount=type=bind,target=.,rw \
+  --mount=type=cache,target=/src/.yarn/cache \
   --mount=type=cache,target=/src/node_modules \
   yarn install && mkdir /vendor && cp yarn.lock /vendor
 
@@ -28,6 +30,7 @@ EOT
 
 FROM deps AS build
 RUN --mount=type=bind,target=.,rw \
+  --mount=type=cache,target=/src/.yarn/cache \
   --mount=type=cache,target=/src/node_modules \
   yarn run build && mkdir /out && cp -Rf dist /out/
 
@@ -48,6 +51,7 @@ EOT
 
 FROM deps AS format
 RUN --mount=type=bind,target=.,rw \
+  --mount=type=cache,target=/src/.yarn/cache \
   --mount=type=cache,target=/src/node_modules \
   yarn run format \
   && mkdir /out && find . -name '*.ts' -not -path './node_modules/*' | cpio -pdm /out
@@ -57,11 +61,13 @@ COPY --from=format /out /
 
 FROM deps AS lint
 RUN --mount=type=bind,target=.,rw \
+  --mount=type=cache,target=/src/.yarn/cache \
   --mount=type=cache,target=/src/node_modules \
   yarn run lint
 
 FROM deps AS test
 RUN --mount=type=bind,target=.,rw \
+  --mount=type=cache,target=/src/.yarn/cache \
   --mount=type=cache,target=/src/node_modules \
   yarn run test --coverageDirectory=/tmp/coverage
 
