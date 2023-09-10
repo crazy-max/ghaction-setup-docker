@@ -69,7 +69,7 @@ FROM deps AS test
 RUN --mount=type=bind,target=.,rw \
   --mount=type=cache,target=/src/.yarn/cache \
   --mount=type=cache,target=/src/node_modules \
-  yarn run test --coverageDirectory=/tmp/coverage
+  yarn run test --coverage --coverageDirectory=/tmp/coverage
 
 FROM scratch AS test-coverage
 COPY --from=test /tmp/coverage /

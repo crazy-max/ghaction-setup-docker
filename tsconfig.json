@@ -3,7 +3,6 @@
     "esModuleInterop": true,
     "target": "es6",
     "module": "commonjs",
-    "strict": true,
     "newLine": "lf",
     "outDir": "./lib",
     "rootDir": "./src",
@@ -13,9 +12,8 @@
     "useUnknownInCatchVariables": false,
   },
   "exclude": [
-    "./__tests__/**/*",
-    "./lib/**/*",
     "node_modules",
+    "**/*.test.ts",
     "jest.config.ts"
   ]
 }
