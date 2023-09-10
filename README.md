@@ -39,7 +39,7 @@ jobs:
     steps:
       -
         name: Set up Docker
-        uses: crazy-max/ghaction-setup-docker@v1
+        uses: crazy-max/ghaction-setup-docker@v2
 ```
 
 ### Daemon configuration
@@ -61,7 +61,7 @@ jobs:
     steps:
       -
         name: Set up Docker
-        uses: crazy-max/ghaction-setup-docker@v1
+        uses: crazy-max/ghaction-setup-docker@v2
         with:
           daemon-config: |
             {
@@ -89,7 +89,7 @@ jobs:
     steps:
       -
         name: Set up Docker
-        uses: crazy-max/ghaction-setup-docker@v1
+        uses: crazy-max/ghaction-setup-docker@v2
         env:
           COLIMA_START_ARGS: --cpu 4 --memory 8 --disk 32
 ```
@@ -102,7 +102,7 @@ Following inputs can be used as `step.with` keys
 
 | Name            | Type   | Default               | Description                                                                                                                 |
 |-----------------|--------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| `version`       | String | `latest`              | Docker CE version (e.g., `v23.0.1`).                                                                                        |
+| `version`       | String | `latest`              | Docker CE version (e.g., `v24.0.6`).                                                                                        |
 | `channel`       | String | `stable`              | Docker CE [channel](https://download.docker.com/linux/static/) (e.g, `stable`, `edge` or `test`).                           |
 | `daemon-config` | String |                       | [Docker daemon JSON configuration](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file) |
 | `context`       | String | `setup-docker-action` | Docker context name.                                                                                                        |
@@ -159,7 +159,7 @@ This can be done within this action by setting the env var `SIGN_QEMU_BINARY=1`:
 ```yaml
       -
         name: Set up Docker
-        uses: crazy-max/ghaction-setup-docker@v1
+        uses: crazy-max/ghaction-setup-docker@v2
         env:
           SIGN_QEMU_BINARY: 1
 ```
@@ -167,10 +167,7 @@ This can be done within this action by setting the env var `SIGN_QEMU_BINARY=1`:
 ## Contributing
 
 Want to contribute? Awesome! The most basic way to show your support is to star
-the project, or to raise issues. If you want to open a pull request, please
-read the [contributing guidelines](.github/CONTRIBUTING.md).
-
-You can also support this project by [**becoming a sponsor on GitHub**](https://github.com/sponsors/crazy-max)
+the project, or to raise issues. You can also support this project by [**becoming a sponsor on GitHub**](https://github.com/sponsors/crazy-max)
 or by making a [PayPal donation](https://www.paypal.me/crazyws) to ensure this
 journey continues indefinitely!
 
