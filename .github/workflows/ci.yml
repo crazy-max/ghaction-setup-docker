@@ -14,7 +14,6 @@ on:
 
 env:
   DOCKER_VERSION: v23.0.6
-  SIGN_QEMU_BINARY: 1
 
 jobs:
   main:
