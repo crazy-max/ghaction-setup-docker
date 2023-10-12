@@ -9,6 +9,13 @@
 GitHub Action to set up (download and install) [Docker CE](https://docs.docker.com/engine/).
 Works on Linux, macOS and Windows.
 
+> [!NOTE]
+> This action is useful if you want to pin against a specific Docker version or
+> set up a custom daemon configuration or if Docker is not available on your
+> runner. If you're using [GitHub-hosted runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)
+> on Linux or Windows, Docker is already up and running, so it might not be
+> necessary to use this action.
+
 > [!WARNING]
 > Does not work on macOS runners with ARM architecture (no nested virtualization):
 > * https://github.com/crazy-max/ghaction-setup-docker/pull/53
