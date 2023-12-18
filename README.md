@@ -38,7 +38,7 @@ jobs:
     steps:
       -
         name: Set up Docker
-        uses: crazy-max/ghaction-setup-docker@v2
+        uses: crazy-max/ghaction-setup-docker@v3
 ```
 
 ### Daemon configuration
@@ -60,7 +60,7 @@ jobs:
     steps:
       -
         name: Set up Docker
-        uses: crazy-max/ghaction-setup-docker@v2
+        uses: crazy-max/ghaction-setup-docker@v3
         with:
           daemon-config: |
             {
@@ -88,7 +88,7 @@ jobs:
     steps:
       -
         name: Set up Docker
-        uses: crazy-max/ghaction-setup-docker@v2
+        uses: crazy-max/ghaction-setup-docker@v3
         env:
           LIMA_START_ARGS: --cpus 4 --memory 8
 ```
