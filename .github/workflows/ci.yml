@@ -131,7 +131,7 @@ jobs:
         if: always()
         uses: crazy-max/ghaction-dump-context@v2
 
-  colima-start-args:
+  lima-start-args:
     runs-on: macos-latest
     steps:
       -
@@ -141,7 +141,7 @@ jobs:
         name: Set up Docker
         uses: ./
         env:
-          COLIMA_START_ARGS: --cpu 4 --memory 8 --disk 32 --dns 1.1.1.1 --dns 8.8.8.8 --dns-host example.com=1.2.3.4
+          LIMA_START_ARGS: --cpus 4 --memory 8
 
   build-linux:
     runs-on: ubuntu-latest
