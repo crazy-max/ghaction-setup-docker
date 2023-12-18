@@ -16,7 +16,7 @@ ___
 * [Usage](#usage)
   * [Quick start](#quick-start)
   * [Daemon configuration](#daemon-configuration)
-  * [Define custom `colima start` arguments (macOS)](#define-custom-colima-start-arguments-macos)
+  * [Define custom `limactl start` arguments (macOS)](#define-custom-limactl-start-arguments-macos)
 * [Customizing](#customizing)
   * [inputs](#inputs)
 * [Contributing](#contributing)
@@ -71,10 +71,10 @@ jobs:
             }
 ```
 
-### Define custom `colima start` arguments (macOS)
+### Define custom `limactl start` arguments (macOS)
 
-You can define custom [`colima start` arguments](https://github.com/abiosoft/colima#customizing-the-vm)
-using the `COLIMA_START_ARGS` environment variable to customize the VM:
+You can define custom [`limactl start` arguments](https://lima-vm.io/docs/reference/limactl_start/)
+using the `LIMA_START_ARGS` environment variable to customize the VM:
 
 ```yaml
 name: ci
@@ -90,14 +90,14 @@ jobs:
         name: Set up Docker
         uses: crazy-max/ghaction-setup-docker@v2
         env:
-          COLIMA_START_ARGS: --cpu 4 --memory 8 --disk 32
+          LIMA_START_ARGS: --cpus 4 --memory 8
 ```
 
 ## Customizing
 
 ### inputs
 
-Following inputs can be used as `step.with` keys
+The following inputs can be used as `step.with` keys
 
 | Name            | Type   | Default               | Description                                                                                                                 |
 |-----------------|--------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
