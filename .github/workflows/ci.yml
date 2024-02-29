@@ -249,3 +249,23 @@ jobs:
         name: Dump context
         if: always()
         uses: crazy-max/ghaction-dump-context@v2
+
+  set-host:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: Set up Docker
+        uses: ./
+        with:
+          set-host: true
+      -
+        name: List contexts
+        run: |
+          docker context ls
+      -
+        name: Dump context
+        if: always()
+        uses: crazy-max/ghaction-dump-context@v2
