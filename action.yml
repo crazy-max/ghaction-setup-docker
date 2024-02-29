@@ -21,6 +21,10 @@ inputs:
     description: 'Docker context name. (default setup-docker-action)'
     required: false
 
+outputs:
+  sock:
+    description: "Docker socket path"
+
 runs:
   using: 'node20'
   main: 'dist/index.js'
