@@ -18,12 +18,14 @@ describe('getInputs', () => {
       0,
       new Map<string, string>([
         ['version', 'v24.0.8'],
+        ['set-host', 'false'],
       ]),
       {
         version: 'v24.0.8',
         channel: '',
         context: '',
         daemonConfig: '',
+        setHost: false
       } as context.Inputs
     ],
     [
@@ -33,22 +35,27 @@ describe('getInputs', () => {
         ['channel', 'test'],
         ['context', 'foo'],
         ['daemon-config', `{"debug":true,"features":{"containerd-snapshotter":true}}`],
+        ['set-host', 'false'],
       ]),
       {
         version: 'v24.0.0-rc.4',
         channel: 'test',
         context: 'foo',
         daemonConfig: `{"debug":true,"features":{"containerd-snapshotter":true}}`,
+        setHost: false
       } as context.Inputs
     ],
     [
       2,
-      new Map<string, string>([]),
+      new Map<string, string>([
+        ['set-host', 'true'],
+      ]),
       {
         version: 'latest',
         channel: '',
         context: '',
         daemonConfig: '',
+        setHost: true
       } as context.Inputs
     ]
   ])(

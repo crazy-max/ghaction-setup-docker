@@ -39,6 +39,13 @@ actionsToolkit.run(
         core.info(`sock=${sockPath}`);
         core.setOutput('sock', sockPath);
       });
+
+      if (input.setHost) {
+        await core.group(`Setting Docker host`, async () => {
+          core.exportVariable('DOCKER_HOST', sockPath);
+          core.info(`DOCKER_HOST=${sockPath}`);
+        });
+      }
     }
 
     await core.group(`Docker info`, async () => {

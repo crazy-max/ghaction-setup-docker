@@ -20,6 +20,10 @@ inputs:
   context:
     description: 'Docker context name. (default setup-docker-action)'
     required: false
+  set-host:
+    description: 'Set DOCKER_HOST environment variable to docker socket path'
+    default: 'false'
+    required: false
 
 outputs:
   sock:

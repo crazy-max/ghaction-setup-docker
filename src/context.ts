@@ -5,6 +5,7 @@ export interface Inputs {
   channel: string;
   daemonConfig?: string;
   context: string;
+  setHost: boolean;
 }
 
 export function getInputs(): Inputs {
@@ -12,6 +13,7 @@ export function getInputs(): Inputs {
     version: core.getInput('version') || 'latest',
     channel: core.getInput('channel'),
     daemonConfig: core.getInput('daemon-config'),
-    context: core.getInput('context')
+    context: core.getInput('context'),
+    setHost: core.getBooleanInput('set-host')
   };
 }
