@@ -19,6 +19,7 @@ ___
   * [Define custom `limactl start` arguments (macOS)](#define-custom-limactl-start-arguments-macos)
 * [Customizing](#customizing)
   * [inputs](#inputs)
+  * [outputs](#outputs)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -105,6 +106,14 @@ The following inputs can be used as `step.with` keys
 | `channel`       | String | `stable`              | Docker CE [channel](https://download.docker.com/linux/static/) (e.g, `stable`, `edge` or `test`).                           |
 | `daemon-config` | String |                       | [Docker daemon JSON configuration](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file) |
 | `context`       | String | `setup-docker-action` | Docker context name.                                                                                                        |
+
+### outputs
+
+The following outputs are available
+
+| Name   | Type   | Description        |
+|--------|--------|--------------------|
+| `sock` | String | Docker socket path |
 
 ## Contributing
 

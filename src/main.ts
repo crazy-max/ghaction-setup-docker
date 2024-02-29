@@ -34,7 +34,11 @@ actionsToolkit.run(
     }
     if (toolDir) {
       stateHelper.setRunDir(runDir);
-      await install.install();
+      const sockPath = await install.install();
+      await core.group(`Setting outputs`, async () => {
+        core.info(`sock=${sockPath}`);
+        core.setOutput('sock', sockPath);
+      });
     }
 
     await core.group(`Docker info`, async () => {

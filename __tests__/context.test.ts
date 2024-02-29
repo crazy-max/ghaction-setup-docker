@@ -17,10 +17,10 @@ describe('getInputs', () => {
     [
       0,
       new Map<string, string>([
-        ['version', 'v23.0.1'],
+        ['version', 'v24.0.8'],
       ]),
       {
-        version: 'v23.0.1',
+        version: 'v24.0.8',
         channel: '',
         context: '',
         daemonConfig: '',
@@ -29,13 +29,13 @@ describe('getInputs', () => {
     [
       1,
       new Map<string, string>([
-        ['version', 'v23.0.0-rc.4'],
+        ['version', 'v24.0.0-rc.4'],
         ['channel', 'test'],
         ['context', 'foo'],
         ['daemon-config', `{"debug":true,"features":{"containerd-snapshotter":true}}`],
       ]),
       {
-        version: 'v23.0.0-rc.4',
+        version: 'v24.0.0-rc.4',
         channel: 'test',
         context: 'foo',
         daemonConfig: `{"debug":true,"features":{"containerd-snapshotter":true}}`,
