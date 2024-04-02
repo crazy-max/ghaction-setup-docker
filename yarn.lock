@@ -100,6 +100,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@actions/http-client@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "@actions/http-client@npm:2.2.1"
+  dependencies:
+    tunnel: ^0.0.6
+    undici: ^5.25.4
+  checksum: c51c003cd697289136c0e81c0f9b8e57a9bb1a038dc7c9a91a71c02f4ae5e27ef7d3e305aefa7c815604049209d114c06e9991a5c5eaa055508519329267f962
+  languageName: node
+  linkType: hard
+
 "@actions/io@npm:^1.0.1, @actions/io@npm:^1.1.1, @actions/io@npm:^1.1.3":
   version: 1.1.3
   resolution: "@actions/io@npm:1.1.3"
@@ -900,15 +910,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docker/actions-toolkit@npm:^0.18.0":
-  version: 0.18.0
-  resolution: "@docker/actions-toolkit@npm:0.18.0"
+"@docker/actions-toolkit@npm:^0.20.0":
+  version: 0.20.0
+  resolution: "@docker/actions-toolkit@npm:0.20.0"
   dependencies:
     "@actions/cache": ^3.2.4
     "@actions/core": ^1.10.1
     "@actions/exec": ^1.1.1
     "@actions/github": ^6.0.0
-    "@actions/http-client": ^2.2.0
+    "@actions/http-client": ^2.2.1
     "@actions/io": ^1.1.3
     "@actions/tool-cache": ^2.0.1
     "@octokit/core": ^5.1.0
@@ -918,8 +928,8 @@ __metadata:
     handlebars: ^4.7.8
     jwt-decode: ^4.0.0
     semver: ^7.5.4
-    tmp: ^0.2.2
-  checksum: a98e20f5cd5827c227c632d50fe1d9895b590859abd7e02712a3abc65bc26b315c451648ef38b37483629fb0d20530e48f33898f95d92566057aa38769dc90f5
+    tmp: ^0.2.3
+  checksum: c366bb50a8755e16175e1b3398a2b79f047fd427bc9d8003bc63cab04a07fa3bc032018e27dcc2b0d6f3d30f32bce29368fd0053835e5ea8ea85dee6cf9528e7
   languageName: node
   linkType: hard
 
@@ -2761,7 +2771,7 @@ __metadata:
   resolution: "docker-setup-docker@workspace:."
   dependencies:
     "@actions/core": ^1.10.1
-    "@docker/actions-toolkit": ^0.18.0
+    "@docker/actions-toolkit": ^0.20.0
     "@types/node": ^20.6.0
     "@typescript-eslint/eslint-plugin": ^6.6.0
     "@typescript-eslint/parser": ^6.6.0
@@ -5683,7 +5693,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tmp@npm:^0.2.2":
+"tmp@npm:^0.2.3":
   version: 0.2.3
   resolution: "tmp@npm:0.2.3"
   checksum: 73b5c96b6e52da7e104d9d44afb5d106bb1e16d9fa7d00dbeb9e6522e61b571fbdb165c756c62164be9a3bbe192b9b268c236d370a2a0955c7689cd2ae377b95
