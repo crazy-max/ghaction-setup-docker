@@ -9,6 +9,11 @@
 GitHub Action to set up (download and install) [Docker CE](https://docs.docker.com/engine/).
 Works on Linux, macOS and Windows.
 
+> [!WARNING]
+> Does not work on macOS runners with ARM architecture (no nested virtualization):
+> * https://github.com/crazy-max/ghaction-setup-docker/pull/53
+> * https://github.com/docker/actions-toolkit/issues/317
+
 ![Screenshot](.github/setup-docker-action.png)
 
 ___
