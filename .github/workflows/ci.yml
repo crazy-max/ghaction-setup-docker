@@ -27,8 +27,8 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
+          #- macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
           - macos-13
-          - macos-latest
           - windows-latest
         version:
           - pinned
@@ -61,7 +61,8 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macos-latest
+          #- macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
+          - macos-13
           - windows-latest
     steps:
       -
@@ -85,7 +86,8 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macos-latest
+          #- macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
+          - macos-13
           - windows-latest
     steps:
       -
@@ -114,7 +116,8 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macos-latest
+          #- macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
+          - macos-13
           - windows-latest
     steps:
       -
@@ -136,7 +139,8 @@ jobs:
         uses: crazy-max/ghaction-dump-context@v2
 
   lima-start-args:
-    runs-on: macos-latest
+    #runs-on: macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
+    runs-on: macos-13
     steps:
       -
         name: Checkout
@@ -191,8 +195,9 @@ jobs:
       fail-fast: false
       matrix:
         os:
+          #- macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
           - macos-13
-          - macos-latest
+          - macos-12
     steps:
       -
         name: Checkout
