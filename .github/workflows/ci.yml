@@ -153,10 +153,21 @@ jobs:
 
   build-linux:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containerd:
+          - containerd-system
+          - containerd-tarball
     steps:
       -
         name: Checkout
         uses: actions/checkout@v4
+      -
+        name: Uninstall containerd
+        if: matrix.containerd == 'containerd-tarball'
+        run: |
+          sudo apt-get remove -y containerd.io
       -
         name: Set up Docker
         uses: ./
