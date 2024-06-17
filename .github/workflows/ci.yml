@@ -185,7 +185,7 @@ jobs:
           driver-opts: network=host
       -
         name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: ./test
           push: true
@@ -230,7 +230,7 @@ jobs:
           driver-opts: network=host
       -
         name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: ./test
           push: true
