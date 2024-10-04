@@ -47,6 +47,29 @@ jobs:
         uses: crazy-max/ghaction-setup-docker@v3
 ```
 
+> [!IMPORTANT]
+> macOS runners hang with latest QEMU 9.1.0. You need to install QEMU 9.0.2 as
+> a workaround:
+> ```yaml
+> name: ci
+> 
+> on:
+>   push:
+> 
+> jobs:
+>   docker:
+>     runs-on: macos-13
+>     steps:
+>       -
+>         # https://github.com/crazy-max/ghaction-setup-docker/issues/108
+>         name: Install QEMU 9.0.2
+>         uses: docker/actions-toolkit/.github/actions/macos-setup-qemu@19ca9ade20f5da695f76a10988d6532058575f82
+>       -
+>         name: Set up Docker
+>         uses: crazy-max/ghaction-setup-docker@v3
+> ```
+> More info: https://github.com/crazy-max/ghaction-setup-docker/issues/108.
+
 ### Daemon configuration
 
 You can [configure the Docker daemon](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file)
