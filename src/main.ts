@@ -21,8 +21,11 @@ actionsToolkit.run(
 
     const install = new Install({
       runDir: runDir,
-      version: input.version,
-      channel: input.channel || 'stable',
+      source: {
+        type: 'archive',
+        version: input.version,
+        channel: input.channel || 'stable'
+      },
       contextName: input.context || 'setup-docker-action',
       daemonConfig: input.daemonConfig
     });
