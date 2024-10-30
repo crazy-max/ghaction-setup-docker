@@ -21,16 +21,12 @@ actionsToolkit.run(
 
     const install = new Install({
       runDir: runDir,
-      source: {
-        type: 'archive',
-        version: input.version,
-        channel: input.channel || 'stable'
-      },
+      source: input.source,
       contextName: input.context || 'setup-docker-action',
       daemonConfig: input.daemonConfig
     });
     let toolDir;
-    if (!(await Docker.isAvailable()) || input.version) {
+    if (!(await Docker.isAvailable()) || input.source) {
       await core.group(`Download docker`, async () => {
         toolDir = await install.download();
       });

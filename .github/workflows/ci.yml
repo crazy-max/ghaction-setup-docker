@@ -33,6 +33,7 @@ jobs:
         version:
           - pinned
           - latest
+          - type=image,tag=27.3.1
     steps:
       -
         name: Checkout
