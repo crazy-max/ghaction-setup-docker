@@ -7,6 +7,7 @@ export interface Inputs {
   daemonConfig?: string;
   context: string;
   setHost: boolean;
+  rootless: boolean;
 }
 
 export function getInputs(): Inputs {
@@ -21,7 +22,8 @@ export function getInputs(): Inputs {
     source: source,
     daemonConfig: core.getInput('daemon-config'),
     context: core.getInput('context'),
-    setHost: core.getBooleanInput('set-host')
+    setHost: core.getBooleanInput('set-host'),
+    rootless: core.getBooleanInput('rootless')
   };
 }
 

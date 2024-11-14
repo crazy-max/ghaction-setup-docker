@@ -135,6 +135,7 @@ The following inputs can be used as `step.with` keys
 | `daemon-config` | String |                       | [Docker daemon JSON configuration](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file) |
 | `context`       | String | `setup-docker-action` | Docker context name.                                                                                                        |
 | `set-host`      | Bool   | `false`               | Set `DOCKER_HOST` environment variable to docker socket path.                                                               |
+| `rootless`      | Bool   | `false`               | Start daemon in rootless mode                                                                                               |
 
 ### outputs
 

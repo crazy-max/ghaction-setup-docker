@@ -19,6 +19,7 @@ describe('getInputs', () => {
       new Map<string, string>([
         ['version', 'v24.0.8'],
         ['set-host', 'false'],
+        ['rootless', 'false'],
       ]),
       {
         source: {
@@ -28,6 +29,7 @@ describe('getInputs', () => {
         },
         context: '',
         daemonConfig: '',
+        rootless: false,
         setHost: false
       } as context.Inputs
     ],
@@ -39,6 +41,7 @@ describe('getInputs', () => {
         ['context', 'foo'],
         ['daemon-config', `{"debug":true,"features":{"containerd-snapshotter":true}}`],
         ['set-host', 'false'],
+        ['rootless', 'false'],
       ]),
       {
         source: {
@@ -48,6 +51,7 @@ describe('getInputs', () => {
         },
         context: 'foo',
         daemonConfig: `{"debug":true,"features":{"containerd-snapshotter":true}}`,
+        rootless: false,
         setHost: false
       } as context.Inputs
     ],
@@ -55,6 +59,7 @@ describe('getInputs', () => {
       2,
       new Map<string, string>([
         ['set-host', 'true'],
+        ['rootless', 'false'],
       ]),
       {
         source: {
@@ -64,6 +69,7 @@ describe('getInputs', () => {
         },
         context: '',
         daemonConfig: '',
+        rootless: false,
         setHost: true
       } as context.Inputs
     ],
@@ -74,6 +80,7 @@ describe('getInputs', () => {
         ['context', 'foo'],
         ['daemon-config', `{"debug":true,"features":{"containerd-snapshotter":true}}`],
         ['set-host', 'false'],
+        ['rootless', 'false'],
       ]),
       {
         source: {
@@ -82,6 +89,7 @@ describe('getInputs', () => {
         },
         context: 'foo',
         daemonConfig: `{"debug":true,"features":{"containerd-snapshotter":true}}`,
+        rootless: false,
         setHost: false
       } as context.Inputs
     ],
@@ -90,6 +98,7 @@ describe('getInputs', () => {
       new Map<string, string>([
         ['version', 'type=image'],
         ['set-host', 'false'],
+        ['rootless', 'false'],
       ]),
       {
         source: {
@@ -98,6 +107,7 @@ describe('getInputs', () => {
         },
         context: '',
         daemonConfig: '',
+        rootless: false,
         setHost: false
       } as context.Inputs
     ],
@@ -106,6 +116,7 @@ describe('getInputs', () => {
       new Map<string, string>([
         ['version', 'type=archive'],
         ['set-host', 'false'],
+        ['rootless', 'false'],
       ]),
       {
         source: {
@@ -116,6 +127,7 @@ describe('getInputs', () => {
         setHost: false,
         context: '',
         daemonConfig: '',
+        rootless: false,
       } as context.Inputs
     ],
     [
@@ -123,6 +135,7 @@ describe('getInputs', () => {
       new Map<string, string>([
         ['version', 'version=v27.2.0,channel=test'],
         ['set-host', 'false'],
+        ['rootless', 'false'],
       ]),
       {
         source: {
@@ -133,6 +146,7 @@ describe('getInputs', () => {
         setHost: false,
         context: '',
         daemonConfig: '',
+        rootless: false,
       } as context.Inputs
     ],
     [
@@ -140,6 +154,7 @@ describe('getInputs', () => {
       new Map<string, string>([
         ['version', 'type=image,tag=27.2.1'],
         ['set-host', 'false'],
+        ['rootless', 'false'],
       ]),
       {
         source: {
@@ -149,6 +164,25 @@ describe('getInputs', () => {
         setHost: false,
         context: '',
         daemonConfig: '',
+        rootless: false,
+      } as context.Inputs
+    ],
+    [
+      8,
+      new Map<string, string>([
+        ['version', 'type=image,tag=27.2.1'],
+        ['set-host', 'false'],
+        ['rootless', 'true']
+      ]),
+      {
+        source: {
+          type: 'image',
+          tag: '27.2.1',
+        },
+        setHost: false,
+        context: '',
+        daemonConfig: '',
+        rootless: true,
       } as context.Inputs
     ],
   ])(

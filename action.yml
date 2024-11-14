@@ -24,6 +24,10 @@ inputs:
     description: 'Set DOCKER_HOST environment variable to docker socket path'
     default: 'false'
     required: false
+  rootless:
+    description: 'Enable Docker rootless mode'
+    default: 'false'
+    required: false
 
 outputs:
   sock:

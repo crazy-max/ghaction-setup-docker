@@ -22,6 +22,7 @@ actionsToolkit.run(
     const install = new Install({
       runDir: runDir,
       source: input.source,
+      rootless: input.rootless,
       contextName: input.context || 'setup-docker-action',
       daemonConfig: input.daemonConfig
     });
