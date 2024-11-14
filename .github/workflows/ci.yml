@@ -55,10 +55,6 @@ jobs:
         uses: ./
         with:
           version: ${{ env.DOCKER_VERSION }}
-      -
-        name: Dump context
-        if: always()
-        uses: crazy-max/ghaction-dump-context@v2
 
   channel:
     runs-on: ${{ matrix.os }}
@@ -85,10 +81,6 @@ jobs:
         with:
           version: v24.0.0-rc.4
           channel: test
-      -
-        name: Dump context
-        if: always()
-        uses: crazy-max/ghaction-dump-context@v2
 
   daemon-config:
     runs-on: ${{ matrix.os }}
@@ -120,10 +112,6 @@ jobs:
                 "containerd-snapshotter": true
               }
             }
-      -
-        name: Dump context
-        if: always()
-        uses: crazy-max/ghaction-dump-context@v2
 
   context:
     runs-on: ${{ matrix.os }}
@@ -154,10 +142,6 @@ jobs:
         name: Check context
         run: |
           docker context inspect foo
-      -
-        name: Dump context
-        if: always()
-        uses: crazy-max/ghaction-dump-context@v2
 
   lima-start-args:
     #runs-on: macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
@@ -220,10 +204,6 @@ jobs:
         name: Inspect
         run: |
           docker buildx imagetools inspect localhost:5000/name/app:latest --format '{{json .}}'
-      -
-        name: Dump context
-        if: always()
-        uses: crazy-max/ghaction-dump-context@v2
 
   build-macos:
     runs-on: ${{ matrix.os }}
@@ -270,10 +250,6 @@ jobs:
         name: Inspect
         run: |
           docker buildx imagetools inspect localhost:5000/name/app:latest --format '{{json .}}'
-      -
-        name: Dump context
-        if: always()
-        uses: crazy-max/ghaction-dump-context@v2
 
   build-windows:
     runs-on: windows-latest
@@ -295,10 +271,6 @@ jobs:
         name: Inspect
         run: |
           docker image inspect test
-      -
-        name: Dump context
-        if: always()
-        uses: crazy-max/ghaction-dump-context@v2
 
   set-host:
     runs-on: ubuntu-latest
@@ -315,7 +287,19 @@ jobs:
         name: List contexts
         run: |
           docker context ls
+
+  rootless:
+    runs-on: ubuntu-latest
+    steps:
       -
-        name: Dump context
-        if: always()
-        uses: crazy-max/ghaction-dump-context@v2
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: Set up Docker
+        uses: ./
+        with:
+          rootless: true
+      -
+        name: List contexts
+        run: |
+          docker context ls
