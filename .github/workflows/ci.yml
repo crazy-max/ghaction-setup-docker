@@ -213,7 +213,6 @@ jobs:
         os:
           #- macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
           - macos-13
-          - macos-12
     steps:
       -
         name: Checkout
