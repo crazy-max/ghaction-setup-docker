@@ -39,11 +39,6 @@ jobs:
         name: Checkout
         uses: actions/checkout@v4
       -
-        # https://github.com/crazy-max/ghaction-setup-docker/issues/108
-        name: Set up QEMU
-        if: startsWith(matrix.os, 'macos')
-        uses: docker/actions-toolkit/.github/actions/macos-setup-qemu@19ca9ade20f5da695f76a10988d6532058575f82
-      -
         name: Set version
         shell: bash
         run: |
@@ -71,11 +66,6 @@ jobs:
         name: Checkout
         uses: actions/checkout@v4
       -
-        # https://github.com/crazy-max/ghaction-setup-docker/issues/108
-        name: Set up QEMU
-        if: startsWith(matrix.os, 'macos')
-        uses: docker/actions-toolkit/.github/actions/macos-setup-qemu@19ca9ade20f5da695f76a10988d6532058575f82
-      -
         name: Set up Docker
         uses: ./
         with:
@@ -96,11 +86,6 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v4
-      -
-        # https://github.com/crazy-max/ghaction-setup-docker/issues/108
-        name: Set up QEMU
-        if: startsWith(matrix.os, 'macos')
-        uses: docker/actions-toolkit/.github/actions/macos-setup-qemu@19ca9ade20f5da695f76a10988d6532058575f82
       -
         name: Set up Docker
         uses: ./
@@ -128,11 +113,6 @@ jobs:
         name: Checkout
         uses: actions/checkout@v4
       -
-        # https://github.com/crazy-max/ghaction-setup-docker/issues/108
-        name: Set up QEMU
-        if: startsWith(matrix.os, 'macos')
-        uses: docker/actions-toolkit/.github/actions/macos-setup-qemu@19ca9ade20f5da695f76a10988d6532058575f82
-      -
         name: Set up Docker
         uses: ./
         with:
@@ -150,10 +130,6 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v4
-      -
-        # https://github.com/crazy-max/ghaction-setup-docker/issues/108
-        name: Set up QEMU
-        uses: docker/actions-toolkit/.github/actions/macos-setup-qemu@19ca9ade20f5da695f76a10988d6532058575f82
       -
         name: Set up Docker
         uses: ./
@@ -217,11 +193,6 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v4
-      -
-        # https://github.com/crazy-max/ghaction-setup-docker/issues/108
-        name: Set up QEMU
-        if: startsWith(matrix.os, 'macos')
-        uses: docker/actions-toolkit/.github/actions/macos-setup-qemu@19ca9ade20f5da695f76a10988d6532058575f82
       -
         name: Set up Docker
         uses: ./
