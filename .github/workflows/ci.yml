@@ -17,7 +17,7 @@ on:
   pull_request:
 
 env:
-  DOCKER_VERSION: v24.0.9
+  DOCKER_VERSION: v27.3.1
 
 jobs:
   main:
@@ -31,25 +31,17 @@ jobs:
           - macos-13
           - windows-latest
         version:
-          - pinned
-          - latest
+          - v27.3.1
           - type=image,tag=27.3.1
     steps:
       -
         name: Checkout
         uses: actions/checkout@v4
       -
-        name: Set version
-        shell: bash
-        run: |
-          if [ "${{ matrix.version }}" != "pinned" ]; then
-            echo "DOCKER_VERSION=${{ matrix.version }}" >> $GITHUB_ENV
-          fi
-      -
         name: Set up Docker
         uses: ./
         with:
-          version: ${{ env.DOCKER_VERSION }}
+          version: ${{ matrix.version }}
 
   channel:
     runs-on: ${{ matrix.os }}
@@ -69,7 +61,7 @@ jobs:
         name: Set up Docker
         uses: ./
         with:
-          version: v24.0.0-rc.4
+          version: ${{ env.DOCKER_VERSION }}
           channel: test
 
   daemon-config:
@@ -90,6 +82,7 @@ jobs:
         name: Set up Docker
         uses: ./
         with:
+          version: ${{ env.DOCKER_VERSION }}
           daemon-config: |
             {
               "debug": true,
@@ -133,6 +126,8 @@ jobs:
       -
         name: Set up Docker
         uses: ./
+        with:
+          version: ${{ env.DOCKER_VERSION }}
         env:
           LIMA_START_ARGS: --cpus 4 --memory 8
 
@@ -252,6 +247,7 @@ jobs:
         name: Set up Docker
         uses: ./
         with:
+          version: ${{ env.DOCKER_VERSION }}
           set-host: true
       -
         name: List contexts
@@ -268,6 +264,7 @@ jobs:
         name: Set up Docker
         uses: ./
         with:
+          version: ${{ env.DOCKER_VERSION }}
           rootless: true
       -
         name: List contexts
