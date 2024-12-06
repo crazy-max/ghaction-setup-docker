@@ -18,6 +18,7 @@ on:
 
 env:
   DOCKER_VERSION: v27.3.1
+  DOCKER_BUILD_SUMMARY: false
 
 jobs:
   main:
