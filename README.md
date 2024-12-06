@@ -1,13 +1,20 @@
-[![GitHub release](https://img.shields.io/github/release/crazy-max/ghaction-setup-docker.svg?style=flat-square)](https://github.com/crazy-max/ghaction-setup-docker/releases/latest)
+[![GitHub release](https://img.shields.io/github/release/docker/setup-docker-action.svg?style=flat-square)](https://github.com/docker/setup-docker-action/releases/latest)
 [![GitHub marketplace](https://img.shields.io/badge/marketplace-docker--setup--docker-blue?logo=github&style=flat-square)](https://github.com/marketplace/actions/docker-setup-docker)
-[![CI workflow](https://img.shields.io/github/actions/workflow/status/crazy-max/ghaction-setup-docker/ci.yml?branch=master&label=ci&logo=github&style=flat-square)](https://github.com/crazy-max/ghaction-setup-docker/actions?workflow=ci)
-[![Test workflow](https://img.shields.io/github/actions/workflow/status/crazy-max/ghaction-setup-docker/test.yml?branch=master&label=test&logo=github&style=flat-square)](https://github.com/crazy-max/ghaction-setup-docker/actions?workflow=test)
-[![Codecov](https://img.shields.io/codecov/c/github/crazy-max/ghaction-setup-docker?logo=codecov&style=flat-square)](https://codecov.io/gh/crazy-max/ghaction-setup-docker)
+[![CI workflow](https://img.shields.io/github/actions/workflow/status/docker/setup-docker-action/ci.yml?branch=master&label=ci&logo=github&style=flat-square)](https://github.com/docker/setup-docker-action/actions?workflow=ci)
+[![Test workflow](https://img.shields.io/github/actions/workflow/status/docker/setup-docker-action/test.yml?branch=master&label=test&logo=github&style=flat-square)](https://github.com/docker/setup-docker-action/actions?workflow=test)
+[![Codecov](https://img.shields.io/codecov/c/github/docker/setup-docker-action?logo=codecov&style=flat-square)](https://codecov.io/gh/docker/setup-docker-action)
 
 ## About
 
 GitHub Action to set up (download and install) [Docker CE](https://docs.docker.com/engine/).
 Works on Linux, macOS and Windows.
+
+> [!NOTE]
+> This action is useful if you want to pin against a specific Docker version or
+> set up a custom daemon configuration or if Docker is not available on your
+> runner. If you're using [GitHub-hosted runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)
+> on Linux or Windows, Docker is already up and running, so it might not be
+> necessary to use this action.
 
 > [!WARNING]
 > Does not work on macOS runners with ARM architecture (no nested virtualization):
@@ -44,7 +51,7 @@ jobs:
     steps:
       -
         name: Set up Docker
-        uses: crazy-max/ghaction-setup-docker@v3
+        uses: docker/setup-docker-action@v3
 ```
 
 ### Daemon configuration
@@ -66,7 +73,7 @@ jobs:
     steps:
       -
         name: Set up Docker
-        uses: crazy-max/ghaction-setup-docker@v3
+        uses: docker/setup-docker-action@v3
         with:
           daemon-config: |
             {
@@ -94,7 +101,7 @@ jobs:
     steps:
       -
         name: Set up Docker
-        uses: crazy-max/ghaction-setup-docker@v3
+        uses: docker/setup-docker-action@v3
         env:
           LIMA_START_ARGS: --cpus 4 --memory 8
 ```
@@ -124,12 +131,8 @@ The following outputs are available
 
 ## Contributing
 
-Want to contribute? Awesome! The most basic way to show your support is to star
-the project, or to raise issues. You can also support this project by [**becoming a sponsor on GitHub**](https://github.com/sponsors/crazy-max)
-or by making a [PayPal donation](https://www.paypal.me/crazyws) to ensure this
-journey continues indefinitely!
-
-Thanks again for your support, it is much appreciated! :pray:
+Want to contribute? Awesome! You can find information about contributing to
+this project in the [CONTRIBUTING.md](/.github/CONTRIBUTING.md)
 
 ## License
 

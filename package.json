@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crazy-max/ghaction-setup-docker.git"
+    "url": "git+https://github.com/docker/setup-docker-action.git"
   },
   "keywords": [
     "actions",
     "docker",
     "engine"
   ],
-  "author": "CrazyMax",
+  "author": "Docker Inc.",
   "license": "Apache-2.0",
   "packageManager": "yarn@3.6.3",
   "dependencies": {
