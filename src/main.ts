@@ -19,12 +19,20 @@ actionsToolkit.run(
       throw new Error(`'default' context cannot be used.`);
     }
 
+    let tcpPort: number | undefined;
+    let tcpAddress: string | undefined;
+    if (input.tcpPort) {
+      tcpPort = input.tcpPort;
+      tcpAddress = `tcp://127.0.0.1:${tcpPort}`;
+    }
+
     const install = new Install({
       runDir: runDir,
       source: input.source,
       rootless: input.rootless,
       contextName: input.context || 'setup-docker-action',
-      daemonConfig: input.daemonConfig
+      daemonConfig: input.daemonConfig,
+      localTCPPort: tcpPort
     });
     let toolDir;
     if (!(await Docker.isAvailable()) || input.source) {
@@ -38,6 +46,10 @@ actionsToolkit.run(
       await core.group(`Setting outputs`, async () => {
         core.info(`sock=${sockPath}`);
         core.setOutput('sock', sockPath);
+        if (tcpAddress) {
+          core.info(`tcp=${tcpAddress}`);
+          core.setOutput('tcp', tcpAddress);
+        }
       });
 
       if (input.setHost) {
