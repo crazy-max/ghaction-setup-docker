@@ -31,6 +31,7 @@ ___
   * [Define custom `limactl start` arguments (macOS)](#define-custom-limactl-start-arguments-macos)
 * [Customizing](#customizing)
   * [inputs](#inputs)
+  * [inputs.version](#inputsversion)
   * [outputs](#outputs)
 * [Contributing](#contributing)
 * [License](#license)
@@ -114,13 +115,79 @@ The following inputs can be used as `step.with` keys
 
 | Name            | Type   | Default               | Description                                                                                                                 |
 |-----------------|--------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| `version`       | String | `latest`              | Docker CE version (e.g., `v24.0.6`).                                                                                        |
-| `channel`       | String | `stable`              | Docker CE [channel](https://download.docker.com/linux/static/) (e.g, `stable`, `edge` or `test`).                           |
+| `version`       | String | `latest`              | Docker version to use. See [inputs.version](#inputs.version).                                                               |
+| `channel`       | String | `stable`              | Docker CE [channel](https://download.docker.com/linux/static/) (`stable` or `test`). Only applicable to `type=archive`      |
 | `daemon-config` | String |                       | [Docker daemon JSON configuration](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file) |
 | `tcp-port`      | Number |                       | TCP port to expose the Docker API locally                                                                                   |
 | `context`       | String | `setup-docker-action` | Docker context name.                                                                                                        |
 | `set-host`      | Bool   | `false`               | Set `DOCKER_HOST` environment variable to docker socket path.                                                               |
 | `rootless`      | Bool   | `false`               | Start daemon in rootless mode                                                                                               |
+
+### inputs.version
+
+By default, the latest stable version of Docker is fetched from download.docker.com.
+
+You can specify a specific version number (e.g. `v27.4.0`).
+Which is a shorthand for the full comma separated value:
+
+`type=archive,channel=stable,version=v27.4.0`
+
+You can also use this full csv format instead.
+
+Currently supported source types are:
+- `archive`
+- `image`
+
+#### `type=archive`
+| Key       |  Default   | Description                                                                          |
+|-----------|------------|--------------------------------------------------------------------------------------| 
+| `type`    | `archive`  | The source type of the Docker binaries. Possible values are `archive` and `image`.   | 
+| `channel` | `stable`   | The download.docker.com channel (`stable` or `test`).                                | 
+| `version` | `latest`   | The Docker version to use.                                                           | 
+
+Examples:
+```yaml
+# last stable released version
+version: latest
+version: type=archive                 # same as above
+version: version=latest               # same as above
+version: type=archive,version=latest  # same as above
+```
+
+```yaml
+# v27.3.0-rc.1 from test channel
+version: type=archive,version=27.3.0-rc.1,channel=test
+```
+
+#### `type=image`
+
+Other possible source type is `image` which will pull the Docker binaries from the `moby/moby-bin` and
+`dockereng/cli-bin` Docker Hub repositories.
+The advantage of using this source type is that these images are built by the Moby and Docker CI pipelines
+for each branch and PR, so you can use the `tag` input to install a specific version or branch (e.g. `master`).
+
+| Key       |  Default   | Description                                                                          |
+|-----------|------------|--------------------------------------------------------------------------------------|
+| `tag`     | `latest`   | The image tag to use.                                                                |
+
+See https://hub.docker.com/r/moby/moby-bin/tags and https://hub.docker.com/r/dockereng/cli-bin/tags for available tags.
+
+Examples:
+```yaml
+# install last stable released version from bin images
+version: type=image
+version: type=image,tag=latest        # same as above
+```
+
+```yaml
+# a cutting-edge version from the `master` branch
+version: type=image,tag=master
+```
+
+```yaml
+# install v27.4.0 from bin images
+version: type=image,tag=27.4.0
+```
 
 ### outputs
 
