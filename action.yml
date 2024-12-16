@@ -17,6 +17,9 @@ inputs:
   daemon-config:
     description: 'Docker daemon JSON configuration'
     required: false
+  tcp-port:
+    description: 'TCP port to expose the Docker API locally'
+    required: false
   context:
     description: 'Docker context name. (default setup-docker-action)'
     required: false
@@ -32,6 +35,8 @@ inputs:
 outputs:
   sock:
     description: "Docker socket path"
+  tcp:
+    description: "Docker TCP address if tcp-port is set"
 
 runs:
   using: 'node20'

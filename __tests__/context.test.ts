@@ -185,6 +185,27 @@ describe('getInputs', () => {
         rootless: true,
       } as context.Inputs
     ],
+    [
+      9,
+      new Map<string, string>([
+        ['version', 'v24.0.8'],
+        ['tcp-port', '2378'],
+        ['set-host', 'false'],
+        ['rootless', 'false'],
+      ]),
+      {
+        source: {
+          type: 'archive',
+          version: 'v24.0.8',
+          channel: 'stable'
+        },
+        context: '',
+        daemonConfig: '',
+        tcpPort: 2378,
+        rootless: false,
+        setHost: false
+      } as context.Inputs
+    ],
   ])(
     '[%d] given %p as inputs, returns %p',
     async (num: number, inputs: Map<string, string>, expected: context.Inputs) => {

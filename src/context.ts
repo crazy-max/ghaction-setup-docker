@@ -1,10 +1,13 @@
 import * as core from '@actions/core';
-import {InstallSource} from '@docker/actions-toolkit/lib/docker/install';
 import {parse} from 'csv-parse/sync';
+
+import {InstallSource} from '@docker/actions-toolkit/lib/docker/install';
+import {Util} from '@docker/actions-toolkit/lib/util';
 
 export interface Inputs {
   source: InstallSource;
   daemonConfig?: string;
+  tcpPort?: number;
   context: string;
   setHost: boolean;
   rootless: boolean;
@@ -21,6 +24,7 @@ export function getInputs(): Inputs {
   return {
     source: source,
     daemonConfig: core.getInput('daemon-config'),
+    tcpPort: Util.getInputNumber('tcp-port'),
     context: core.getInput('context'),
     setHost: core.getBooleanInput('set-host'),
     rootless: core.getBooleanInput('rootless')

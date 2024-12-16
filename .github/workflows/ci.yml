@@ -271,3 +271,31 @@ jobs:
         name: List contexts
         run: |
           docker context ls
+
+  tcp:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          #- macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
+          - macos-13
+          - windows-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: Set up Docker
+        id: setup_docker
+        uses: ./
+        with:
+          version: ${{ env.DOCKER_VERSION }}
+          tcp-port: 2378
+      -
+        name: Check docker info through TCP
+        run: |
+          docker info
+        env:
+          DOCKER_HOST: ${{ steps.setup_docker.outputs.tcp }}
